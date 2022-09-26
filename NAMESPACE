@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("stats", "end")
+importFrom("nortest")
+importFrom("olsrr")
