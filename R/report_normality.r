@@ -127,8 +127,11 @@ report_normality <- function(x) {
     end
   }
 
-  # Kolmogorof-Smirnov test
+   # Kolmogorof-Smirnov test
   else if (x[["method"]][[1]] == "Asymptotic one-sample Kolmogorov-Smirnov test") {
+    if (x[["alternative"]] == "two-sided") {
+      p <- p/2
+    }
     if (x[["p.value"]] == 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = <.05). "
@@ -150,6 +153,9 @@ report_normality <- function(x) {
     }
     end
   } else if (x[["method"]][[1]] == "Exact one-sample Kolmogorov-Smirnov test") {
+    if (x[["alternative"]] == "two-sided") {
+      p <- p/2
+    }
     if (x[["p.value"]] < 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = ", sub("^(-?)0.", "\\1.", sprintf("%.3f", p)), "). "
@@ -173,6 +179,9 @@ report_normality <- function(x) {
 
     end
   } else if (x[["method"]][[1]] == "Asymptotic two-sample Kolmogorov-Smirnov test") {
+    if (x[["alternative"]] == "two-sided") {
+      p <- p/2
+    }
     if (x[["p.value"]] == 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = <.05). "
@@ -192,8 +201,12 @@ report_normality <- function(x) {
       alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies above.")
       text <- c(text, alternative)
     }
+
     end
   } else if (x[["method"]][[1]] == "Exact two-sample Kolmogorov-Smirnov test") {
+    if (x[["alternative"]] == "two-sided") {
+      p <- p/2
+    }
     if (x[["p.value"]] < 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = ", sub("^(-?)0.", "\\1.", sprintf("%.3f", p)), "). "
@@ -208,7 +221,7 @@ report_normality <- function(x) {
       alternative <- c("We applied a two-tailed test.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies above that of y") {
-      alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies above.")
+      alternative <- c("We applied a one-tailed test the cumulative distribution function lies above.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies below that of y") {
       alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies below.")
