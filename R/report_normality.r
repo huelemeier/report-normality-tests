@@ -132,7 +132,7 @@ report_normality <- function(x) {
     if (x[["alternative"]] == "two-sided") {
       p <- p/2
     }
-    if (x[["p.value"]] == 0) {
+    if (p  == 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = <.05). "
       )
@@ -156,7 +156,7 @@ report_normality <- function(x) {
     if (x[["alternative"]] == "two-sided") {
       p <- p/2
     }
-    if (x[["p.value"]] < 0) {
+    if (p < 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = ", sub("^(-?)0.", "\\1.", sprintf("%.3f", p)), "). "
       )
@@ -182,7 +182,7 @@ report_normality <- function(x) {
     if (x[["alternative"]] == "two-sided") {
       p <- p/2
     }
-    if (x[["p.value"]] == 0) {
+    if (p == 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = <.05). "
       )
@@ -207,7 +207,7 @@ report_normality <- function(x) {
     if (x[["alternative"]] == "two-sided") {
       p <- p/2
     }
-    if (x[["p.value"]] < 0) {
+    if (p < 0) {
       text <- c( # Output for significant values
         "Based on the ", x[["method"]], ", we have sufficient evidence to say ", x[["data.name"]], " did not come from our assumed distribution (D = ", round(x[["statistic"]], 2), ", p = ", sub("^(-?)0.", "\\1.", sprintf("%.3f", p)), "). "
       )
