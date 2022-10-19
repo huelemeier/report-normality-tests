@@ -129,8 +129,8 @@ report_normality <- function(x) {
 
    # Kolmogorof-Smirnov test
   else if (x[["method"]][[1]] == "Asymptotic one-sample Kolmogorov-Smirnov test") {
-    if (x[["alternative"]] == "two-sided") {
-      p <- p
+    if (x[["alternative"]] != "two-sided") {
+      p <- p/2
     }
     if (p  == 0) {
       text <- c( # Output for significant values
@@ -153,8 +153,8 @@ report_normality <- function(x) {
     }
     end
   } else if (x[["method"]][[1]] == "Exact one-sample Kolmogorov-Smirnov test") {
-    if (x[["alternative"]] == "two-sided") {
-      p <- p
+    if (x[["alternative"]] != "two-sided") {
+      p <- p/2
     }
     if (p < 0) {
       text <- c( # Output for significant values
@@ -179,8 +179,8 @@ report_normality <- function(x) {
 
     end
   } else if (x[["method"]][[1]] == "Asymptotic two-sample Kolmogorov-Smirnov test") {
-    if (x[["alternative"]] == "two-sided") {
-      p <- p
+    if (x[["alternative"]] != "two-sided") {
+      p <- p/2
     }
     if (p == 0) {
       text <- c( # Output for significant values
@@ -204,8 +204,8 @@ report_normality <- function(x) {
 
     end
   } else if (x[["method"]][[1]] == "Exact two-sample Kolmogorov-Smirnov test") {
-    if (x[["alternative"]] == "two-sided") {
-      p <- p
+    if (x[["alternative"]] != "two-sided") {
+      p <- p/2
     }
     if (p < 0) {
       text <- c( # Output for significant values
