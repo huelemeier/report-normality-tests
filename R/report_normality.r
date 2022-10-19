@@ -145,7 +145,7 @@ report_normality <- function(x) {
       alternative <- c("We applied a two-tailed test.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies above the null hypothesis") {
-      alternative <- c("We applied a one-tailed test the cumulative distribution function lies above the null hypothesis.")
+      alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies above the null hypothesis.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies below the null hypothesis") {
       alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies below the null hypothesis.")
@@ -170,7 +170,7 @@ report_normality <- function(x) {
       alternative <- c("We applied a two-tailed test.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies above the null hypothesis") {
-      alternative <- c("We applied a one-tailed test the cumulative distribution function lies above the null hypothesis.")
+      alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies above the null hypothesis.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies below the null hypothesis") {
       alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies below the null hypothesis.")
@@ -195,7 +195,7 @@ report_normality <- function(x) {
       alternative <- c("We applied a two-tailed test.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies below that of y") {
-      alternative <- c("We applied a one-tailed test the cumulative distribution function lies below.")
+      alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies below.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies above that of y") {
       alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies above.")
@@ -221,7 +221,7 @@ report_normality <- function(x) {
       alternative <- c("We applied a two-tailed test.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies above that of y") {
-      alternative <- c("We applied a one-tailed test the cumulative distribution function lies above.")
+      alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies above.")
       text <- c(text, alternative)
     } else if (x[["alternative"]] == "the CDF of x lies below that of y") {
       alternative <- c("We applied a one-tailed test assuming the cumulative distribution function lies below.")
